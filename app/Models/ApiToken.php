@@ -15,7 +15,7 @@ class ApiToken extends Model
         'expires_at'
     ];
 
-    public function IsTokenValid(string $token): bool
+    public static function IsTokenValid(string $token): bool
     {
         return ApiToken::whereToken($token)->valid()->exists();
     }

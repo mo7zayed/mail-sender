@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\ApiToken;
+use App\Console\Commands\CreateApiTokensCommand;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
 
 class ApiTokensSeeder extends Seeder
 {
@@ -15,9 +15,6 @@ class ApiTokensSeeder extends Seeder
      */
     public function run()
     {
-        ApiToken::create([
-            'token' => Str::random(25),
-            'expires_at' => now()->addHours(12)->format('Y-m-d H:i:s')
-        ]);
+        Artisan::call(CreateApiTokensCommand::class);
     }
 }

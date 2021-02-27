@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Mails\ListEmails;
 use App\Http\Controllers\Mails\SendEmails;
+use App\Http\Middleware\CheckApiTokenInRequestBodyMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/send', SendEmails::class);
+Route::post('/list', ListEmails::class)->middleware(CheckApiTokenInRequestBodyMiddleware::class);
+Route::post('/send', SendEmails::class)->middleware(CheckApiTokenInRequestBodyMiddleware::class);

@@ -22,8 +22,36 @@ class SentMails extends Model implements HasMedia
     /**
      * @inheritDoc
      */
+    protected $with = [
+        'media'
+    ];
+
+    /**
+     * @inheritDoc
+     */
+    protected $appends = [
+        'attachments_urls'
+    ];
+
+    /**
+     * @inheritDoc
+     */
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('attachments');
+    }
+
+    /**
+     * An accessor to get the media urls
+     *
+     * @return array
+     */
+    public function getAttachmentsUrlsAttribute(): array
+    {
+        $urls = $this->media->map(fn ($item) => $item->getFullUrl())->toArray();
+
+        unset($this->media);
+
+        return $urls;
     }
 }

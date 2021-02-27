@@ -25,6 +25,7 @@ class SendEmailsRequest extends FormRequest
     {
         return [
             'emails' => [
+                'required',
                 'array',
                 'min:1'
             ],
