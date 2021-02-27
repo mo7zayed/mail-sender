@@ -14,4 +14,5 @@ Send mails asynchronously using (Laravel/Horizon/Redis) with Integration tests
 - create a database for testing and fill the database cerds in phpunit.xml
 - `./vendor/bin/phpunit`
 
+# Endpoints
 check the postman collection in the project dir `postman_collection.json`
