@@ -1,5 +1,5 @@
 # A mail sender
-Sending mails with base64 attachments
+Send mails asynchronously using (Laravel/Horizon/Redis) with Integration tests
 
 # Installation
 - Clone the repo
